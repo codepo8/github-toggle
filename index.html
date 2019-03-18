@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GitHub Toggle</title>
+    <style>
+    body {font-family:Verdana, Geneva, Tahoma, sans-serif;}
+    h1 {font-weight: normal;text-transform: uppercase; letter-spacing: -1px;font-size: 3vw;}
+    h2 {font-weight: normal;text-transform: uppercase; letter-spacing: -1px;font-size: 2vw;}
+    a {color: #fff; background: #369; padding: 10px 5px; text-decoration: none; display: inline-block; margin: 1em 0;}
+    </style>
+</head>
+<body>
+    <h1>GitHub Toggle</h1>
+    <h2>A bookmarklet to toggle between Repo and GitHub pages</h2>
+    <p>Drag the following link to your Favourites/Bookmarks bar and click it to switch between repo and pages on a GitHub repo that has a page :)</p>
+    <p>
+        <a href="javascript:dl=document.location.href;str=dl.indexOf('github.io')!==-1 ? dl.replace(/\/(.*)\.github.io/,'//github.com$1'):dl.replace(/github.com\/([^\/]+)\//,'$1.github.io/');document.location.href=str">GitHub Toggle</a>
+    </p>
+    <script>
+    function toggle(str){
+      // let dl = document.location.href;
+      let pp = [/\/(.*)\.github.io/,'//github.com$1'];
+      let pr = [/github.com\/([^\/]+)\//,'$1.github.io/'];
+      let s = str.indexOf('github.io')!==-1 ? str.replace(pp[0],pp[1]):str.replace(pr[0],pr[1]);
+      return s;    
+    }
+    console.log(toggle('https://github.com/codepo8/not-that-important/'));
+    console.log(toggle('https://codepo8.github.io/not-that-important/'));
+    </script>
+        
+</body>
+</html>
+
